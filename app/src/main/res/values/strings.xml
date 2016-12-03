@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">BeOrder</string>
+
+    <string-array name="urutkan">
+        <item>Harga</item>
+        <item>Jarak</item>
+        <item>Rating</item>
+    </string-array>
+</resources>
