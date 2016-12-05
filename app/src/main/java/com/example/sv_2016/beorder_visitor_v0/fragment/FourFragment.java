@@ -11,8 +11,10 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.sv_2016.beorder_visitor_v0.R;
+import com.example.sv_2016.beorder_visitor_v0.adapters.HistoriAdaptr;
 import com.example.sv_2016.beorder_visitor_v0.adapters.PromoAdapter;
 import com.example.sv_2016.beorder_visitor_v0.interfaces.RecyclerTouchListener;
+import com.example.sv_2016.beorder_visitor_v0.models.Histori;
 import com.example.sv_2016.beorder_visitor_v0.models.Promo;
 
 import java.util.ArrayList;
@@ -24,9 +26,9 @@ import java.util.List;
 
 public class FourFragment extends BaseFragment {
 
-    private List<Promo> promoList = new ArrayList<>();
+    private List<Histori> historiList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private PromoAdapter mAdapter;
+    private HistoriAdaptr mAdapter;
 
 
     public FourFragment() {
@@ -52,7 +54,7 @@ public class FourFragment extends BaseFragment {
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
 
-        mAdapter = new PromoAdapter(promoList);
+        mAdapter = new HistoriAdaptr(historiList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -62,8 +64,8 @@ public class FourFragment extends BaseFragment {
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
-                Promo promo = promoList.get(position);
-                Toast.makeText(getActivity(), promo.getRestoName() + " is selected!", Toast.LENGTH_SHORT).show();
+                Histori histori = historiList.get(position);
+                Toast.makeText(getActivity(), histori.getRestoName() + " is selected!", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -76,23 +78,29 @@ public class FourFragment extends BaseFragment {
     }
 
     private void loadDummyData(){
-        Promo promo = new Promo("Warunk Upnormal","1 Hour ago","Lorem ipsum dolor sit amet," +
-                "consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa." +
-                "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus " +
-                "mus Lorem ipsum dolor sit amet,\" +\n" +
-                "                \"consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.\" +\n" +
-                "                \"Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus \" +\n" +
-                "                \"mus",R.drawable.upnormal,R.drawable.upnormalpic);
-        promoList.add(promo);
+        Histori histori = new Histori("Warunk Upnormal","10/12/2016","TOTAL 210000,00",R.drawable.upnormal);
+        historiList.add(histori);
 
-        promo = new Promo("KARNIVOR","1 Hour ago","Lorem ipsum dolor sit amet," +
-                "consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa." +
-                "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus " +
-                "mus Lorem ipsum dolor sit amet,\" +\n" +
-                "                \"consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.\" +\n" +
-                "                \"Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus \" +\n" +
-                "                \"mus",R.drawable.karnivorlogo,R.drawable.karnivorpic);
-        promoList.add(promo);
+        histori = new Histori("KARNIVOR","13/11/2016","TOTAL 410500,00",R.drawable.karnivorlogo);
+        historiList.add(histori);
+
+        histori = new Histori("Warunk Upnormal","10/12/2016","TOTAL 210000,00",R.drawable.upnormal);
+        historiList.add(histori);
+
+        histori = new Histori("KARNIVOR","13/11/2016","TOTAL 410500,00",R.drawable.karnivorlogo);
+        historiList.add(histori);
+
+        histori = new Histori("Warunk Upnormal","10/12/2016","TOTAL 210000,00",R.drawable.upnormal);
+        historiList.add(histori);
+
+        histori = new Histori("KARNIVOR","13/11/2016","TOTAL 410500,00",R.drawable.karnivorlogo);
+        historiList.add(histori);
+
+        histori = new Histori("Warunk Upnormal","10/12/2016","TOTAL 210000,00",R.drawable.upnormal);
+        historiList.add(histori);
+
+        histori = new Histori("KARNIVOR","13/11/2016","TOTAL 410500,00",R.drawable.karnivorlogo);
+        historiList.add(histori);
 
         mAdapter.notifyDataSetChanged();
     }

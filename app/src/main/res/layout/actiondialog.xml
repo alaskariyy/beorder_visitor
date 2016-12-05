@@ -12,7 +12,7 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:src="@drawable/min"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="18dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -21,19 +21,18 @@
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/linearLayout"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+        android:id="@+id/scanBarcode"
         android:gravity="center"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="10dp">
+        android:layout_above="@+id/orderBerjalan"
+        android:layout_alignRight="@+id/orderBerjalan"
+        android:layout_alignEnd="@+id/orderBerjalan"
+        android:layout_marginBottom="5dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Scan barcode"
-            android:id="@+id/textView"
             android:layout_marginRight="5dp"
             android:textSize="20dp"
             android:textColor="#FFC107"/>
@@ -53,19 +52,17 @@
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/linearLayout"
-        android:layout_above="@+id/close_action_button"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+        android:id="@+id/orderBerjalan"
         android:gravity="center"
-        android:layout_marginRight="16dp">
+        android:layout_above="@+id/close_action_button"
+        android:layout_alignRight="@+id/close_action_button"
+        android:layout_alignEnd="@+id/close_action_button">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Bayar pesanan"
-            android:id="@+id/textView2"
+            android:text="Order berjalan"
             android:layout_marginRight="5dp"
             android:textSize="20dp"
             android:textColor="#FFC107" />

@@ -1,6 +1,7 @@
 package com.example.sv_2016.beorder_visitor_v0;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.example.sv_2016.beorder_visitor_v0.fragment.FourFragment;
 import com.example.sv_2016.beorder_visitor_v0.fragment.OneFragment;
@@ -26,25 +28,26 @@ import com.example.sv_2016.beorder_visitor_v0.fragment.TwoFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
     public Dialog dialog;
     private FloatingActionButton fab;
+//    private LinearLayout scanBarcode,orderBerjalan;
     int[] tabIcons = {
-            R.drawable.promo_,
-            R.drawable.search_,
-            R.drawable.bell_,
-            R.drawable.person_
+            R.drawable.promo_white,
+            R.drawable.search_white,
+            R.drawable.bell_white,
+            R.drawable.person_white
     };
 
     int[] tabIconsUns = {
-            R.drawable.promo,
-            R.drawable.search,
-            R.drawable.bell,
-            R.drawable.person
+            R.drawable.promo_red,
+            R.drawable.search_red,
+            R.drawable.bell_red,
+            R.drawable.person_red
     };
 
 
@@ -108,10 +111,14 @@ public class MainActivity extends AppCompatActivity {
         demodialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // diss miss the dialog
                 dialog.dismiss();
             }
         });
+
+        View scanBarcode = (View) dialog.findViewById(R.id.scanBarcode);
+        View orderBerjalan = (View) dialog.findViewById(R.id.orderBerjalan);
+        scanBarcode.setOnClickListener(this);
+        orderBerjalan.setOnClickListener(this);
 
         // it show the dialog box
         dialog.show();
@@ -135,6 +142,21 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFrag(new FourFragment(), "FOUR");
         viewPager.setAdapter(adapter);
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent intent;
+        switch (view.getId()){
+            case (R.id.scanBarcode):
+                intent = new Intent(this, ScanQRCodeActivity.class);
+                startActivity(intent);
+                break;
+            case (R.id.orderBerjalan):
+                break;
+            default:
+                break;
+        }
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
