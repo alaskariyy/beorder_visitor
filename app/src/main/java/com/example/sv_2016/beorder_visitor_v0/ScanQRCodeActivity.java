@@ -1,6 +1,7 @@
 package com.example.sv_2016.beorder_visitor_v0;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.PointF;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -43,7 +44,8 @@ public class ScanQRCodeActivity extends AppCompatActivity implements QRCodeReade
     // "points" : points where QR control points are placed in View
     @Override
     public void onQRCodeRead(String text, PointF[] points) {
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, OrderActivity.class);
+        startActivity(intent);
     }
 
     @Override

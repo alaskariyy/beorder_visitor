@@ -1,6 +1,8 @@
 package com.example.sv_2016.beorder_visitor_v0.fragment;
 
 import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -19,7 +21,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sv_2016.beorder_visitor_v0.MainActivity;
+import com.example.sv_2016.beorder_visitor_v0.OrderActivity;
 import com.example.sv_2016.beorder_visitor_v0.R;
+import com.example.sv_2016.beorder_visitor_v0.RestoProfileActivity;
 import com.example.sv_2016.beorder_visitor_v0.adapters.MoviesAdapter;
 import com.example.sv_2016.beorder_visitor_v0.adapters.PromoAdapter;
 import com.example.sv_2016.beorder_visitor_v0.interfaces.RecyclerTouchListener;
@@ -80,6 +84,9 @@ public class OneFragment extends Fragment {
             public void onClick(View view, int position) {
                 Promo promo = promoList.get(position);
                 Toast.makeText(getActivity(), promo.getRestoName() + " is selected!", Toast.LENGTH_SHORT).show();
+                Context context = view.getContext();
+                Intent intent = new Intent(context, RestoProfileActivity.class);
+                context.startActivity(intent);
             }
 
             @Override

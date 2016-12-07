@@ -24,9 +24,10 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:id="@+id/restoBanner" />
+                android:id="@+id/restoBanner"
+                android:scaleType="centerCrop"                />
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:id="@+id/restoLogo"
